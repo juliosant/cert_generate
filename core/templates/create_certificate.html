@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load pybootstrap %}
+{% block body %}
+    <h3 class="text-center mt-2">Criar um certificado</h3>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="card card-body mx-auto  w-50">
+            <label>country_name:</label>
+            {{ certificate_form.country_name|f_class:'form-control mb-2' }}
+            <label>state:</label>
+            {{ certificate_form.state|f_class:'form-control mb-2' }}
+            <label>city:</label>
+            {{ certificate_form.city|f_class:'form-control mb-2' }}
+            <label>organization_name:</label>
+            {{ certificate_form.organization_name|f_class:'form-control mb-2' }}
+            <label>common_name:</label>
+            {{ certificate_form.common_name|f_class:'form-control mb-2' }}
+            <label>email:</label>
+            {{ certificate_form.email|f_class:'form-control mb-2' }}
+            <button class="w-50 mx-auto btn btn-success" type="submit">Gerar Certificado</button>
+            <a href="{% url 'core:homepage' %}" class="mx-auto text-success" style="text-decoration: none;">Voltar</a>
+        </div>
+    </form>
+{% endblock %}
