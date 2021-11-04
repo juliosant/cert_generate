@@ -27,9 +27,7 @@
 * **Tutorial instalação**
 
   * Instale as dependências necessárias para executar:
-    * <code>pip freeze install -r requirements.txt</code>
-  * Em seguida suba inicialize o banco de dados para a CRL:
-    * <code>python manage.py migrate</code>
+    * <code>pip install -r requirements.txt</code>
 
   * Execute o servidor:
     * <code>python manage.py runserver</code>
