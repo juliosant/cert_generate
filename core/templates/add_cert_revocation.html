@@ -6,7 +6,7 @@
 <form method="POST">
     {% csrf_token %}
     <div class="card card-body w-50 mx-auto">
-        {% if messages %}
+        {% if messages and exists == True %}
         <div class="card card-body mx-auto w-100 p-0 mt-0 mb-0 border-0">
             {% for message in messages %}
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -19,7 +19,7 @@
         <label class="h4">Serial number</label>
         {{ cert_revocation_form.serial_number|f_class:'form-control mb-2' }}
         <button class="btn btn-success w-50 mx-auto">Adicionar</button>
-        <a href="{% url 'core:homepage' %}" class="mx-auto text-success" style="text-decoration: none;">Voltar</a>
+          <a href="{% url 'homepage' %}" class="mx-auto text-success" style="text-decoration: none;">Voltar</a>
     </div>
 </form>
 {% endblock %}

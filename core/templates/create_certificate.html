@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load pybootstrap %}
 {% block body %}
+{% if user.is_authenticated  %}
     <h3 class="text-center mt-2">Criar um certificado</h3>
     <form method="POST">
         {% csrf_token %}
@@ -18,7 +19,10 @@
             <label>email:</label>
             {{ certificate_form.email|f_class:'form-control mb-2' }}
             <button class="w-50 mx-auto btn btn-success" type="submit">Gerar Certificado</button>
-            <a href="{% url 'core:homepage' %}" class="mx-auto text-success" style="text-decoration: none;">Voltar</a>
+            <a href="{% url 'homepage' %}" class="mx-auto text-success" style="text-decoration: none;">Voltar</a>
         </div>
     </form>
+    {% else %}
+    <h3> Olá jovem, acesse com seu usuario!</h3>
+    {% endif %}
 {% endblock %}

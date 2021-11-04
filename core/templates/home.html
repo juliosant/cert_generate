@@ -1,10 +1,16 @@
 {% extends 'base.html' %}
 
 {% block body %}
+{% if user.is_authenticated  %}
     <h1 class="text-center mt-5"> Escolha dentre as opções </h1>
     <div class="card card-body mx-auto w-50">
-        <a href="{% url 'core:create_certificate' %}" class="btn btn-success m-3"><h2>Criar um certificado</h2></a>
-        <a href="{% url 'core:cert_revocation_list' %}" class="btn btn-success m-3"><h2>Verificar cetificados revogados</h2></a>
-        <a href="{% url 'core:add_cert_revocation' %}" class="btn btn-success m-3"><h2>Invalidar certificado</h2></a>
+        <a href="{% url 'create_certificate' %}" class="btn btn-success m-3"><h2>Criar um certificado</h2></a>
+        <a href="{% url 'cert_revocation_list' %}" class="btn btn-success m-3"><h2>Verificar cetificados revogados</h2></a>
+        <a href="{% url 'add_cert_revocation' %}" class="btn btn-success m-3"><h2>Invalidar certificado</h2></a>
+        <a href="{% url 'account_logout' %}" class="btn btn-danger m-3"><h2>Sair</h2></a>
+        
     </div>
+{% else %}
+    <h3 class="text-center mt-5"> Olá jovem, acesse com seu usuario! <a href="{% url 'account_login' %}">Ir para login </a></h3>
+{% endif %}
 {% endblock %}

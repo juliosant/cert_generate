@@ -91,7 +91,7 @@ def create_certificate(request):
         #print(certSTR.serial_number)
         #print(certSTR.issuer.rfc4514_string())
 
-        return redirect('core:certificate')
+        return redirect('certificate')
 
     certificate_form = CertForm()
     content = {
@@ -104,18 +104,20 @@ def create_certificate(request):
 def add_cert_revocation(request):
     cert_revocation_form = CertificateRevocationForm()
     content = {
-        'cert_revocation_form': cert_revocation_form
+        'cert_revocation_form': cert_revocation_form,
+        'exists': False
     }
 
     if request.POST:
         certificates_number = CertificateRevocation.objects.filter(serial_number=request.POST['serial_number']).count()
         if certificates_number > 0:
             messages.info(request, "Certificado já tinha sido revogado revogado")
+            content['exists'] = True
             return render(request, 'add_cert_revocation.html', content)
         cert_revocation_form = CertificateRevocationForm(request.POST)
         if cert_revocation_form.is_valid():
             cert_revocation_form.save()
-            return redirect('core:homepage')
+            return redirect('homepage')
     
     return render(request, 'add_cert_revocation.html', content)
 
