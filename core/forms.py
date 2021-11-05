@@ -19,6 +19,6 @@ class CertificateRevocationForm(forms.ModelForm):
                 model = CertificateRevocation
                 fields = '__all__'
                 widgets = {
-                        'serial_number': forms.TextInput(attrs={'placeholder': 'Digite o "serial number" do sertificado'})
+                        'serial_number': forms.TextInput(attrs={'placeholder': 'Digite o "serial number" do certificado'})
                 }
 
