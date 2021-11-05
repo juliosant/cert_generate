@@ -111,7 +111,7 @@ def add_cert_revocation(request):
     if request.POST:
         certificates_number = CertificateRevocation.objects.filter(serial_number=request.POST['serial_number']).count()
         if certificates_number > 0:
-            messages.info(request, "Certificado já tinha sido revogado revogado")
+            messages.info(request, "Certificado já tinha sido revogado")
             content['exists'] = True
             return render(request, 'add_cert_revocation.html', content)
         cert_revocation_form = CertificateRevocationForm(request.POST)

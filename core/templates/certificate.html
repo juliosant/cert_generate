@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block body %}
     <div class="container row col-10 mx-auto">
+        <a href="{% url 'homepage' %}" class="mx-auto text-success text-end mt-3 h3" style="text-decoration: none;">Voltar</a>
         <h3>Certificate</h3>
         <textarea class="form-control" name="" id="cert" cols="30" rows="10">{{ cert }}</textarea>
         <br>

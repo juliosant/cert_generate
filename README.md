@@ -28,11 +28,12 @@
 
   * Instale as dependências necessárias para executar:
     * <code>pip install -r requirements.txt</code>
-
   * Execute o servidor:
     * <code>python manage.py runserver</code>
-
+  * Acesse no seu navegador:
+    * <code>127.0.0.1:8000</code>
+  
   **OBS: recomendo utilizar virtualenv python (venv), mas não é obrigatório** 
-
+  
   
 
