@@ -32,5 +32,7 @@
   * Execute o servidor:
     * <code>python manage.py runserver</code>
 
+  **OBS: recomendo utlizar virtualenv python (venv), mas não é obrigatório** 
 
+  
 

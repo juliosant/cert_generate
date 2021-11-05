@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block title %}{% trans "Sign Out" %}{% endblock %}
+
+{% block body %}
+<style>
+    #card{
+        margin-top: 10%;
+    }
+</style>
+<div id="card"  class="card card-body mx-auto w-50 text-center shadow">
+<h1>{% trans "Sair" %}</h1>
+
+<p>{% trans 'Você tem certeza que deseja sair?' %}</p>
+
+<form method="post" action="{% url 'account_logout' %}">
+  {% csrf_token %}
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+  {% endif %}
+  <button type="submit" class="btn btn-outline-danger px-5 mx-3" >{% trans 'Sim' %}</button>
+  <a href="{% url 'homepage' %}" class="btn btn-outline-success px-5" >{% trans 'Não' %}</a>
+</form>
+</div>
+{% endblock %}
